@@ -113,3 +113,10 @@ export default function Layout({ children }) {
 ![img.png](img.png)
 
 - `App`에서 담당하던 UI가 전부 `Layout`컴포넌트에서 관리할 수 있음
+
+## Layout 컴포넌트 개념과 활용 방법
+- `Layout` 컴포넌트는 페이지 라우터에서 자주 쓰이는 컴포넌트이자 페이지 구성 패턴
+- `Next.js` 에서 `Layout` 컴포넌트는 `/layouts` 폴더 밑에 위치한 컴포넌트를 가리킴
+
+### Layout 컴포넌트 목적
+- `Next.js` 에서 페이지마다 공통으로 들어가는 요소를 `Layout` 컴포넌트에 정의하여 코드의 중복을 방지할 수 있음
