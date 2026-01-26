@@ -92,3 +92,24 @@ export default function App({ Component, pageProps }) {
 - 페이지 이동 시 유지할 공통 레이아웃 구성
 - 페이지에 추가 데이터 구성
 - 전역 CSS 추가
+
+## Layout 컴포넌트 생성 및 적용
+
+```javascript
+// Layout.jsx
+
+export default function Layout({ children }) {
+    return (
+        <div>
+            <nav>
+                <Link href={"/home"}>Home</Link> | <Link href={"/login"}>Login</Link>
+            </nav>
+            <div>{children}</div>
+        </div>
+    );
+}
+```
+
+![img.png](img.png)
+
+- `App`에서 담당하던 UI가 전부 `Layout`컴포넌트에서 관리할 수 있음
