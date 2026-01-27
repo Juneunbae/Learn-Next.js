@@ -1,5 +1,18 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+
 // "/" 에 해당하는 컴포넌트
 function ProductPage() {
+  const [products, setProducts] = useState();
+
+  useEffect(() => {
+    axios.get("http://localhost:4000/products").then((response) => {
+      setProducts(response.data);
+    });
+  }, []);
+
+  console.log(products);
+
   return <div style={{ color: "blue" }}>hello next</div>;
 }
 
