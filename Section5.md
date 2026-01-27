@@ -3,7 +3,7 @@
 ## 커스텀 앱(_app 파일) 컴포넌트 소개
 - `_app` 파일은 "Root Component"를 의미
 - 페이지 컴포넌트가 그려지기 위해서는 `App` 컴포넌트가 필요하며 `App` 컴포넌트를 커스텀 할 수 있는 파일이 바로 `_app` 파일 = Custom App 컴포넌트
-- `home.jsx`와 `login.jsx`에 공통적인 코드가 생긴다면 page 컴포넌트를 뿌리고 있는 상위 컴포넌트(부모 컴포넌트)에 넣어주면 관리하기 쉽다
+- `index.jsx`와 `login.jsx`에 공통적인 코드가 생긴다면 page 컴포넌트를 뿌리고 있는 상위 컴포넌트(부모 컴포넌트)에 넣어주면 관리하기 쉽다
 
 ### 수정 전
 ```javascript
@@ -24,7 +24,7 @@ export default LoginPage;
 ```
 
 ```javascript
-// home.jsx
+// index.jsx
 
 function Homepage() {
     return (
@@ -64,7 +64,7 @@ export default LoginPage;
 ```
 
 ```javascript
-// home.jsx
+// index.jsx
 
 function Homepage() {
     return <div>home</div>;
@@ -108,7 +108,7 @@ export default function Layout({ children }) {
         </div>
     );
 }
-```
+``` 
 
 ![img.png](img.png)
 
@@ -120,3 +120,8 @@ export default function Layout({ children }) {
 
 ### Layout 컴포넌트 목적
 - `Next.js` 에서 페이지마다 공통으로 들어가는 요소를 `Layout` 컴포넌트에 정의하여 코드의 중복을 방지할 수 있음
+
+## 코드 정리 및 파일 폴더 기반 페이지 라우팅 방식 소개
+- `/cart` 에 해당하는 파일을 만드는 방법은 2가지
+1. `cart.jsx` 파일 만들기
+2. `pages/cart/index.js` 파일 만들기
