@@ -27,3 +27,13 @@ npm i axios
 1. Pending : 아직 결과가 나오지 않은 상태
 2. Fulfilled : 비동기 작업이 성공해 결과가 있는 상태
 3. Rejected : 비동기 작업이 실패한 상태
+
+## useState와 useEffect 소개 및 상품 목록 표시
+
+### useState
+- `useState`는 컴포넌트에서 화면에 표시할 상태들을 정의할 때 사용
+
+### useEffect
+- `useEffect`는 컴포넌트가 렌더링되자마자 실행되는 로직들
+- 현재는 서버에 있는 데이터를 불러와서 화면에 그리기 위한 상태로 연결하기 위해서 useEffect 사용
+
