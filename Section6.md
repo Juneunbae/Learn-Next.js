@@ -37,3 +37,48 @@ npm i axios
 - `useEffect`는 컴포넌트가 렌더링되자마자 실행되는 로직들
 - 현재는 서버에 있는 데이터를 불러와서 화면에 그리기 위한 상태로 연결하기 위해서 useEffect 사용
 
+## 상품 목록 컴포넌트화 및 components 폴더 소개
+
+### components 이점
+- 페이지 컴포넌트 관점에서 UI 영역별로 컴포넌트가 분리가 되기 때문에 로직들이 컴포넌트 단위 별로 나눠지게 된다.
+- 따라서 나중에 해당 컴포넌트에 에러가 발생했을 경우, 에러가 난 컴포넌트만 보면 되는 이점이 있다.
+
+### ex
+```javascript
+// index.jsx
+
+function ProductPage() {
+    return (
+        <div>
+            <h1>상품목록 페이지</h1>
+            <ProductList></ProductList>
+        </div>
+    );
+}
+```
+
+```javascript
+// ProductList.jsx
+
+function ProductList() {
+    const [products, setProducts] = useState();
+
+    useEffect(() => {
+        axios.get("http://localhost:4000/products").then((response) => {
+            setProducts(response.data);
+        });
+    }, []);
+
+    console.log(products);
+
+    return (
+        <ul>
+            {products &&
+                products.map((product) => {
+                    return <li key={product.id}>{product.name}</li>;
+                })}
+        </ul>
+    );
+}
+```
+- 위처럼 사용은 `<컴포넌트명></컴포넌트명>` 형식으로 가능하다
