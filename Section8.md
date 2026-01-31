@@ -80,3 +80,111 @@ export async function getServerSideProps(context) {
 ### `getServerSideProps` 파라미터
 - `getServerSideProps` 메서드의 첫 번째 파라미터는 `context` 파라미터
 - 이 파라미터는 params, req, res, query 등 여러 속성 값을 접근할 수 있다.
+
+## 디스트럭처링 문법과 props 실습 안내
+
+### 구조 분해 문법(Destructuring)
+- `디스트럭처링`은 ES6 문법은 한글로 번역하면 '구조 분해 문법'
+
+#### 기존 자바스크립트에서의 '구조'
+```javascript
+var arr = [1, 2, 3, 4];
+var obj = {
+    a: 10,
+    b: 20,
+    c: 30
+}
+```
+- 전형적인 객체, 배열 선언 방식
+- 왼쪽에 변수 이름을 넣고 오른쪽에 데이터 타입을 선언
+- '구조'라는 단언느 이러한 선언 형식을 의미
+
+#### 그럼 '구조 분해'란?
+```javascript
+var { a, b, c } = obj;
+```
+- 이러한 변수 선언 형식이 위처럼 자유로워지는 것을 의미
+- 변수에 중괄호를 씌우는 것 자체가 어색하고 낯설기만 함
+- 기존 자바스크립트라면 오류를 내겠지만 출력해보면 제대로 동작
+```javascript
+console.log(a); 
+// 10
+
+console.log(b);
+// 20
+
+console.log(c);
+// 30
+```
+
+#### 특정 객체의 값을 꺼내오는 방법
+- 그럼 어디다가 쓰려고 만든 것일까?
+```javascript
+var josh = {
+    language: 'javascript',
+    position: 'front-end',
+    area: 'pangyo',
+    hobby: 'singing',
+    age: '102'
+};
+
+var language = josh.language;
+var position = josh.position;
+var area = josh.area;
+var hobby = josh.hobby;
+var age = josh.age;
+```
+- 기존 자바스크립에서는 특정 객체의 값을 꺼낼 때 보통 이렇게 구현
+- 객체의 특정 속성 값을 꺼내올 때마다 일일이 변수를 하나 생성하고 담아줘야함
+- 꺼내야 할 속성이 많으면 많을수록 새로운 변수를 생성하고 대입하는 식의 반복 작업을 계속했어야했다
+
+#### 구조 분해 문법을 적용하면 더 간편하게 꺼낼 수 있다
+```javascript
+var josh = {
+    language: 'javascript',
+    position: 'front-end',
+    area: 'pangyo',
+    hobby: 'singing',
+    age: '102'
+};
+
+var { language, position, area, hobby, age } = josh;
+console.log(language); // javascript
+console.log(position); // front-end
+console.log(area); // pangyo
+console.log(hobby); // singing
+console.log(age); // 102
+```
+- 이렇게 구조 분해 문법을 사용하면 코드 라인 숫자를 줄일 수 있고, 이 문법이 익숙해지면 전체적으로 코드가 더 간결해짐
+
+### 뷰엑스에 적용하는 구조 분해 문법
+- 구조 분해 문법을 활용하기 가장 좋은 곳은 바로 뷰엑스의 'actions 속성'
+- 뷰엑스의 actions 속성들은 모두 context라는 인자를 받는다
+- 그리고 context의 commit API를 반드시 호출
+
+```vue
+actions: {
+    fetchData(context) {
+        context.commit('addProducts');
+    }
+}
+```
+- 여기서 구조 분해 문법을 적용하면 바꿀 수 있다
+```vue
+actions: {
+    fetchData({ commit }) {
+        commit('addProducts');
+    }
+}
+```
+- 어떻게 가능한가?
+```javascript
+var context = {
+    commit: actionName => console.log(actionName + ' has been committed!!')
+};
+```
+- 구조 분해 문법을 적용하면 다음과 같은 결과가 나타난다
+```javascript
+var { commit } = context;
+commit('addProducts'); // addProducts has been committed!!
+```

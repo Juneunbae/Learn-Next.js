@@ -1,8 +1,15 @@
 import React from "react";
+import ProductHeader from "@/components/ProductHeader";
 
 // 상품 상세 정보 페이지 컴포넌트
 export default function ProductDetailPage({ msg }) {
-  return <div>ProductDetailPage - {msg}</div>;
+  const headerTitle = "상품 상세 정보 페이지";
+  return (
+    <div>
+      <ProductHeader title={headerTitle}></ProductHeader>
+      <div>ProductDetailPage - {msg}</div>;
+    </div>
+  );
 }
 
 export async function getServerSideProps(context) {
