@@ -7,7 +7,7 @@ export default function ProductDetailPage({ msg }) {
   return (
     <div>
       <ProductHeader title={headerTitle}></ProductHeader>
-      <div>ProductDetailPage - {msg}</div>;
+      <div>ProductDetailPage - {msg}</div>
     </div>
   );
 }
