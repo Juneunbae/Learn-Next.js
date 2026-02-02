@@ -20,3 +20,7 @@
 ```shell
 HTML 먼저 표시 → JS 실행 → 데이터 fetch → 화면 업데이트
 ```
+
+## getServerSideProps와 useEffect 데이터 호출 흐름 비교
+
+![img_1.png](img_1.png)
