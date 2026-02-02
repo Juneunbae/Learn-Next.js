@@ -24,3 +24,13 @@ HTML 먼저 표시 → JS 실행 → 데이터 fetch → 화면 업데이트
 ## getServerSideProps와 useEffect 데이터 호출 흐름 비교
 
 ![img_1.png](img_1.png)
+
+## getServerSideProps와 useEffect의 페이지 로딩 차이
+
+### getServerSideProps
+- 첫 화면부터 완성된 데이터
+- But! 서버 응답이 느리면 첫 로딩이 느리다
+
+### useEffect
+- 화면은 빨리 뜬다
+- But! 로딩 UI 필요하고 깜빡임 기능이 있다
