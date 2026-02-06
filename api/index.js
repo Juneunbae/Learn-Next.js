@@ -9,4 +9,9 @@ function fetchProducts() {
   return instance.get("/products");
 }
 
-export { instance, fetchProducts };
+// 특정 상품 상세 정보를 조회하는 API 함수
+function fetchProductById(id) {
+  return instance.get(`/products/${id}`);
+}
+
+export { fetchProducts, fetchProductById };

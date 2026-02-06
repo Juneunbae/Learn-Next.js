@@ -1,6 +1,6 @@
 import ProductHeader from "@/components/ProductHeader";
 import React from "react";
-import axios from "axios";
+import { fetchProductById } from "@/api";
 
 // 상품 상세 정보 페이지 컴포넌트
 export default function ProductDetailPage({ msg, productInfo }) {
@@ -17,9 +17,8 @@ export default function ProductDetailPage({ msg, productInfo }) {
 
 export async function getServerSideProps(context) {
   // /products/15
-  console.log(context.params.productId);
   const id = context.params.productId;
-  const response = await axios.get(`http://localhost:4000/products/${id}`);
+  const response = await fetchProductById(id);
 
   return {
     props: {
