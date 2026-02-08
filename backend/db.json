@@ -191,6 +191,12 @@
     {
       "id": "2",
       "name": "Handcrafted Frozen Pizza"
+    },
+    {
+      "id": "4",
+      "name": "Unbranded Rubber Chair",
+      "imageUrl": "https://cdn.pixabay.com/user/2014/06/04/17-13-09-273_250x250.jpg",
+      "price": "458.00"
     }
   ]
 }
