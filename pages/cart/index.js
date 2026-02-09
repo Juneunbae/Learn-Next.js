@@ -1,8 +1,15 @@
 import { fetchCarts } from "@/api";
+import CartHeader from "@/components/cart/CartHeader";
+import CartList from "@/components/cart/CartList";
 
 function CartPage({ carts }) {
   console.log(carts);
-  return <div>장바구니 페이지</div>;
+  return (
+    <div>
+      <CartHeader></CartHeader>
+      <CartList></CartList>
+    </div>
+  );
 }
 
 export async function getServerSideProps() {
