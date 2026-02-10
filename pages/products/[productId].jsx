@@ -1,7 +1,7 @@
 import ProductHeader from "@/components/ProductHeader";
 import React from "react";
 import { fetchProductById } from "@/api";
-import ProductInfo from "@/components/ProductInfo";
+import ProductInfo from "@/components/product-detail/ProductInfo";
 
 // 상품 상세 정보 페이지 컴포넌트
 export default function ProductDetailPage({ productDetail }) {

@@ -1,4 +1,4 @@
-import ProductList from "@/components/ProductList";
+import ProductList from "@/components/product-list/ProductList";
 import ProductHeader from "@/components/ProductHeader";
 
 // "/" 에 해당하는 컴포넌트
