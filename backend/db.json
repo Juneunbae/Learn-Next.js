@@ -189,20 +189,10 @@
       "imageUrl": "https://cdn.pixabay.com/user/2023/05/21/19-38-51-804_250x250.jpg"
     },
     {
-      "id": "2",
-      "name": "Handcrafted Frozen Pizza"
-    },
-    {
       "id": "4",
       "name": "Unbranded Rubber Chair",
       "imageUrl": "https://cdn.pixabay.com/user/2014/06/04/17-13-09-273_250x250.jpg",
       "price": "458.00"
-    },
-    {
-      "id": "10",
-      "name": "Small Fresh Soap",
-      "imageUrl": "https://cdn.pixabay.com/user/2017/04/03/20-55-54-482_250x250.jpg",
-      "price": "777.00"
     }
   ]
 }
