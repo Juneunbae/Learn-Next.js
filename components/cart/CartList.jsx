@@ -2,17 +2,22 @@ import Image from "next/image";
 import React from "react";
 import styles from "./CartList.module.css";
 import { removeCartItem } from "@/api";
+import { useRouter } from "next/router";
 
 export default function CartList({ carts }) {
+  const router = useRouter();
+
   const totalPrice = carts.reduce((acc, cur) => {
     return acc + parseFloat(cur.price) || 0;
   }, 0);
 
   const removeCart = async (id) => {
     // 1. 삭제 API 호출
-    await removeCartItem(id);
-    // 2. 상품 목록을 갱신
-    alert("삭제가 되었습니다.");
+    const { data } = await removeCartItem(id);
+    alert(`${data.name} 삭제가 되었습니다.`);
+
+    // 2. 상품 목록 갱신
+    router.replace(router.asPath);
   };
 
   return (
